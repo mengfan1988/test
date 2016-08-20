@@ -1,0 +1,18 @@
+[ 2016-08-16T15:10:38+08:00 ] 127.0.0.1 /haidao
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.031742s ]
+ERR: 无法加载模块:Haidao
+
+[ 2016-08-16T15:10:39+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-08-16T15:10:49+08:00 ] 127.0.0.1 /haidao/install.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000609s ]
+ERR: 无法加载模块:Haidao
+
