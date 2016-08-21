@@ -1,0 +1,47 @@
+<div class="row" style='width:100%'>
+    <div class='col-lg-1'></div>
+    <div class="col-lg-10" style='margin-top:30px;'>
+        <div class="panel panel-default">
+            <div class="panel-heading " style='color:white;background:#0278c1'>快递信息列表
+
+            </div>
+            <!-- /.panel-heading -->          
+            <div class='showExpress'>
+                <!--表格显示处 --> 
+            </div> 
+
+            <ul id='page' class='pagination' style='float:right'>     
+                <!-- 分页显示标签 -->   
+            </ul>   
+
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<script>
+    $(function () {
+
+
+        //分页效果
+        $('#page').jqPaginator({
+            totalPages: {$pages},
+            visiblePages: 5,
+            currentPage: 1,
+            first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+            prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+            page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+            next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+            last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+            onPageChange: function (num) {
+                $.get('__CONTROLLER__/showExpress', {'p': num}, function (res) {
+                    $('.showExpress').html(res);
+                });
+            }
+        });
+
+
+    });
+</script>

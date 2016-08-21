@@ -1,0 +1,63 @@
+<div class="panel-body">                
+    <table class='table table-hover table-striped table-bordered'> 
+        <tr>
+            <td><b>快递公司ID</b></td>
+            <td><b>快递公司名</b></td>
+            <td><b>备注</b></td>
+            <td><b>操作</b></td>
+        </tr>
+        <volist name="res" id="vo">
+            <tr  class='tr_{$vo.express_id}'>
+                <td>{$vo.express_id}</td>
+                <td class='title'>{$vo.express_name}</td>                       
+                <td class='name'>{$vo.express_info}</td>
+                <td>
+                    {//删除按钮}
+                    <button type="button" data-eid='{$vo.express_id}' class='btn btn-primary btn-sm glyphicon glyphicon-trash expressdel'
+                            data-toggle="modal"  data-target="#exampleModal-del" data-whatever="@mdo">
+                    </button>
+            </td>
+        </tr>
+    </volist>
+
+</table>            
+
+</div>
+
+{//删除模拟态提示表单}
+
+<div class="modal fade" id="exampleModal-del" tabindex="-1" role="dialog"  aria-labelledby="exampleModalLabel1">
+    <div class="modal-dialog" role="document" style='width: 400px;' >
+        <div class="modal-content" >
+            <div class="modal-header"  >        
+                <h4 class="modal-title " id="exampleModalLabel1"><b>提示</b></h4>
+            </div>
+            <div class="modal-body" >
+                <p><b>确认删除该快递?</b></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button"  class="btn btn-primary del"  data-dismiss="modal" >删除
+                </button>
+            </div>
+        </div>
+    </div>
+</div> 
+<script>
+    $(function(){
+        /**
+        *   删除快递 点击删除按钮获取自定义属性ID 
+        */
+       $('.expressdel').click(function(){
+           var eid = $(this).attr('data-eid');
+           $('.del').click(function(){
+               $.get('__MODULE__/express/delExpress',{'eid':eid},function(res){
+                   if(res=='删除成功'){
+                       $('.tr_'+eid).remove();
+                   }
+               });
+           });
+       });
+    })
+</script>
